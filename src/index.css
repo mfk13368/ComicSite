@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-comic-paper text-black font-sans;
+    background-image: radial-gradient(#0000001a 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold uppercase tracking-tight;
+    font-family: 'Bangers', 'Arial Black', sans-serif;
+  }
+}
+
+@layer components {
+  .comic-panel {
+    @apply bg-white border-3 border-black shadow-comic p-6 relative overflow-hidden;
+  }
+  
+  .comic-button {
+    @apply bg-comic-yellow border-3 border-black shadow-comic-sm px-4 py-2 font-bold uppercase hover:bg-white transition-colors active:shadow-none active:translate-x-1 active:translate-y-1;
+  }
+  
+  .speech-bubble {
+    @apply bg-white border-3 border-black rounded-3xl p-4 relative shadow-comic-sm;
+  }
+  
+  .speech-bubble::after {
+    content: '';
+    @apply absolute bottom-0 left-10 w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[20px] border-t-black translate-y-full;
+  }
+
+  .speech-bubble-inner::after {
+    content: '';
+    @apply absolute bottom-0 left-10 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[17px] border-t-white translate-y-[90%];
+  }
+
+  .boom-box {
+    @apply bg-comic-red text-white p-4 font-black text-2xl rotate-[-2deg] border-3 border-black shadow-comic-sm inline-block;
+    clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+  }
+  
+  .pow-text {
+    @apply text-comic-orange font-black text-4xl drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] uppercase italic;
+    -webkit-text-stroke: 1.5px black;
+  }
+}
